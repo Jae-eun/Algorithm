@@ -3,7 +3,7 @@ package programmars;
 // 가운데 글자 가져오기
 // substring
 
-public class level_12903 {
+public class level1_12903 {
 	public static void main(String[] args) {
 		System.out.println(solution("word"));
 	}
