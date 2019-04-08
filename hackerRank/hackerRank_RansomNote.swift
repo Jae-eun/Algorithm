@@ -10,7 +10,7 @@ import Foundation
 
 // magazine에 있는 단어로 note를 모두 쓸 수 있는지 확인하기
 // Practice > Interview Preparation Kit > Dictionaries and Hashmaps > Hash Tables: Ransom Note
-// https://www.hackerrank.com/challenges/ctci-ransom-note/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=dictionaries-hashmaps
+// https://www.hackerrank.com/challenges/ctci-ransom-note/problem
 
 let magazine = ["two", "times", "three", "is", "not", "four"]
 let note = ["two", "times", "two", "is", "four"]
