@@ -15,10 +15,9 @@ import Foundation
 let N = Int(readLine()!)!
 var weightHeight = [[Int]]()
 var rank = [Int]()
-var person = 0
+var person = 1
 for _ in 0..<N {
-    let input = readLine()!.split(separator: " ").map(){Int($0)!}
-    weightHeight.append(input)
+    weightHeight.append(readLine()!.split(separator: " ").map(){Int($0)!})
 }
 for i in 0..<N {
     for j in 0..<N {
@@ -27,9 +26,7 @@ for i in 0..<N {
             person += 1
         }
     }
-    rank.append(person+1)
-    person = 0
+    rank.append(person)
+    person = 1
 }
-for i in 0..<N {
-    print(rank[i], terminator: " ")
-}
+print(rank.map(){String($0)}.joined(separator: " "))
