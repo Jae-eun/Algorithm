@@ -11,7 +11,7 @@ import Foundation
 // backjoon 11719 그대로 출력하기 2
 // 입력 받은대로 그대로 출력 (최대 100줄, 100글자 이내, 빈 줄, 공백)
 
-// 방법 1
+// 풀이 1
 var input = readLine()
 if let input = input {
     print(input)
@@ -23,7 +23,7 @@ while (input != nil) {
     }
 }
 
-// 방법 2
+// 풀이 2
 while let input = readLine() {
     print(input)
 }

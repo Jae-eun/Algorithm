@@ -11,7 +11,7 @@ import Foundation
 // backjoon 11721 열 개씩 끊어 출력하기
 // 주어진 글자를 10글자씩 한 줄로 출력
 
-// 방법 1
+// 풀이 1
 let input = Array(readLine() ?? "")
 for item in 0...input.count/10 {
     if (item+1)*10 > input.count {
@@ -23,7 +23,7 @@ for item in 0...input.count/10 {
 }
 
 
-// 방법 2
+// 풀이 2
 let input = readLine()!
 var i = 0
 for index in input {
