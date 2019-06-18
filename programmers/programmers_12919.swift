@@ -17,8 +17,7 @@ import Foundation
 let seoul = ["Jane", "Kim"]
 
 func solution(_ seoul:[String]) -> String {
-    let x = seoul.index(of: "Kim")!
-    return "김서방은 \(x)에 있다"
+    return "김서방은 \(seoul.firstIndex(of: "Kim")!)에 있다"
 }
 
 solution(seoul)
