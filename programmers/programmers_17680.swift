@@ -27,6 +27,7 @@ import Foundation
 // cache hit일 경우 실행시간은 1이다.
 // cache miss일 경우 실행시간은 5이다.
 
+// 풀이 1
 func solution(_ cacheSize:Int, _ cities:[String]) -> Int {
     var result = 0
     var page = [String]()
@@ -48,6 +49,33 @@ func solution(_ cacheSize:Int, _ cities:[String]) -> Int {
             }
             result += 5
             page.insert(city, at: 0)
+        }
+    }
+    return result
+}
+
+// 풀이 2
+func solution(_ cacheSize:Int, _ cities:[String]) -> Int {
+    var result = 0
+    var page = [String]()
+    
+    if cacheSize == 0 {
+        result = cities.count * 5
+        return result
+    }
+    for i in 0..<cities.count {
+        let city = cities[i].lowercased()
+        if page.contains(city) {
+            result += 1
+            let index = page.index(of: city)!
+            page.remove(at: index)
+            page.append(city)
+        } else {
+            if page.count == cacheSize {
+                page.removeFirst()
+            }
+            result += 5
+            page.append(city)
         }
     }
     return result
