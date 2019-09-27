@@ -23,7 +23,7 @@ import Foundation
 // 첫째 줄에 10진법 수 N을 B진법으로 출력한다.
 
 let n = readLine()!.split(separator: " ").map { Int($0)! }
-print(String(n[0], radix: n[1]).uppercased())
+print(String(n[0], radix: n[1], uppercase: true))
 
 //60466175 36
 //답
