@@ -10,14 +10,7 @@ import Foundation
 
 // backjoon 10951 A + B - 4
 
-while true {
-    let input = readLine() ?? ""
-    if input == "" {
-        break
-    } else {
-        var number = input.split(separator: " ")
-        let a = Int(number[0])!
-        let b = Int(number[1])!
-        print(a+b)
-    }
+while let input = readLine() {
+    print(input.split(separator: " ").map { Int($0)! }.reduce(0, +))
 }
+
