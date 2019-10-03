@@ -23,22 +23,16 @@ import Foundation
 //예제와 같이 조세퍼스 순열을 출력한다.
 
 var input = readLine()!.split(separator: " ").compactMap { Int($0) }
-var circle = [Int]()
+var circle = [Int](1...input[0])
 var index = 0
 
-for i in 1...input[0] {
-    circle.append(i)
-}
 print("<", terminator: "")
 while !circle.isEmpty {
     if circle.count == 1 {
         print("\(circle[0])>")
         break
     }
-    index += input[1] - 1
-    if index >= circle.count {
-        index %= circle.count
-    }
+    index = (index + input[1] - 1) % circle.count
     print("\(circle.remove(at: index)),", terminator: " ")
 }
 
