@@ -1,5 +1,5 @@
 //
-//  codility_binarygap_1.swift
+//  codility_BinaryGap_1-1.swift
 //  algo
 //
 //  Created by 이재은 on 09/10/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-// codility binary gap 1
+// codility Binary Gap Lesson 1 - Iterations
 
 // 이진수로 변환했을 때 1과 1 사이의 0의 최대 길이
 
