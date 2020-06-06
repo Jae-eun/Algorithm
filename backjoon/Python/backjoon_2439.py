@@ -11,11 +11,17 @@
 ##출력
 ##첫째 줄부터 N번째 줄까지 차례대로 별을 출력한다.
 
+# 풀이 1
 N = int(input())
-for i in range(N):
+for i in range(1,N+1):
     str = ""
     for j in range(0,N-i):
         str += " "
     for j in range(i):
         str += "*"
     print(str)
+
+# 풀이 2
+N = int(input())
+for i in range(1,N+1):
+    print(" " * (N-i) + "*" * i)
