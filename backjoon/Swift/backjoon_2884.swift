@@ -21,7 +21,7 @@ import Foundation
 
 
 // 풀이 1 (런타임 에러(?))
-let input = readLine()!.split(separator: " ").compactMap{ Int($0)! }
+let input = readLine()!.split(separator: " ").compactMap{ Int($0) }
 let cal = Calendar.current
 let dateFormatter = DateFormatter()
 dateFormatter.dateFormat = "HH mm"
@@ -30,16 +30,17 @@ var changeAlarm = dateFormatter.string(from: currentAlarm! - 45 * 60).split(sepa
 
 print(changeAlarm[0], changeAlarm[1])
 
+
 // 풀이 2
 let input = readLine()!.split(separator: " ").compactMap{ Int($0) }
 var hour = input[0]
 var minute = input[1] - 45
 
-if minute <= 0 {
+if minute < 0 {
     hour -= 1
     minute += 60
 }
-if hour <= 0 {
+if hour < 0 {
     hour = 23
 }
 print(hour, minute)
