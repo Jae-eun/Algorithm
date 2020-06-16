@@ -14,6 +14,7 @@ import Foundation
 //
 // 첫째 줄에 두 도메인의 유명도 N과 M이 주어진다. (-2,000,000,000 ≤ N, M ≤ 2,000,000,000)
 
+// 풀이 1
 let input = readLine()!.split(separator: " ").map { Int($0)! }
 var result = 0
 if input[0] > input[1] {
@@ -22,3 +23,7 @@ if input[0] > input[1] {
     result = input[1] - input[0]
 }
 print(result)
+
+// 풀이 2
+let input = readLine()!.split(separator: " ").map { Int($0)! }
+print(abs(input[0] - input[1]))
