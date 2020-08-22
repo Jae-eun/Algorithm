@@ -59,6 +59,22 @@ for s in stick {
 print(count)
 
 
+// 풀이2 20200822
+let input = Array(readLine()!)
+var stack = [String]()
+var count = 0
+
+for i in 0..<input.count {
+    if input[i] == "(" {
+        stack.append(String(input[i]))
+    } else {
+        stack.removeLast()
+        count += input[i-1] == "(" ? stack.count : 1
+    }
+}
+print(count)
+
+
 //()(((()())(())()))(())
 //답
 //17
