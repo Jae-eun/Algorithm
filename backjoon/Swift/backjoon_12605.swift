@@ -24,7 +24,7 @@ import Foundation
 
 let N = Int(readLine()!)!
 for i in 1...N {
-    let text = readLine()!.split(separator: " ").map { String($0) }.reversed().joined(separator: " ")
+    let text = readLine()!.split(separator: " ").reversed().joined(separator: " ")
     print("Case #\(i): \(text)")
 }
 
