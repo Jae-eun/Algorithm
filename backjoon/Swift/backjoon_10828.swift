@@ -20,6 +20,8 @@ import Foundation
 //
 // 첫째 줄에 주어지는 명령의 수 N (1 ≤ N ≤ 10,000)이 주어진다. 둘째 줄부터 N개의 줄에는 명령이 하나씩 주어진다. 주어지는 정수는 1보다 크거나 같고, 100,000보다 작거나 같다. 문제에 나와있지 않은 명령이 주어지는 경우는 없다.
 
+// 풀이 1
+
 let N = Int(readLine()!)!
 var stack = [Int]()
 
@@ -37,6 +39,55 @@ for _ in 0..<N {
         print(stack.isEmpty ? 1 : 0)
     case "top":
         print(stack.last ?? -1)
+    default:
+        break
+    }
+}
+
+
+// 풀이 2
+
+public struct Stack {
+    private var array = [Int]()
+
+    public mutating func push(_ element: Int) {
+        array.append(element)
+    }
+
+    public mutating func pop() -> Int {
+        return array.isEmpty ? -1 : array.popLast()!
+    }
+
+    public var size: Int {
+        return array.count
+    }
+
+    public func isEmpty() -> Int {
+        return array.isEmpty ? 1 : 0
+    }
+
+    public var top: Int {
+        return array.isEmpty ? -1 : array.last!
+    }
+}
+
+let N = Int(readLine()!)!
+var stack = Stack()
+
+for _ in 0..<N {
+    let input = readLine()!.split(separator: " ")
+
+    switch input[0] {
+    case "push":
+        stack.push(Int(input[1])!)
+    case "pop":
+        print(stack.pop())
+    case "size":
+        print(stack.size)
+    case "empty":
+        print(stack.isEmpty())
+    case "top":
+        print(stack.top)
     default:
         break
     }
