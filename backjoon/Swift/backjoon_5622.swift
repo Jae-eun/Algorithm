@@ -28,10 +28,31 @@ import Foundation
 //첫째 줄에 다이얼을 걸기 위해서 필요한 시간을 출력한다.
 
 let word = readLine()!
-let alphabetCount = [()]
+var time = 0
 
-
-
+word.forEach {
+    switch $0 {
+    case "A", "B", "C":
+        time += 3
+    case "D", "E", "F":
+        time += 4
+    case "G", "H", "I":
+        time += 5
+    case "J", "K", "L":
+        time += 6
+    case "M", "N", "O":
+        time += 7
+    case "P", "Q", "R", "S":
+        time += 8
+    case "T", "U", "V":
+        time += 9
+    case "W", "X", "Y", "Z":
+        time += 10
+    default:
+        time += 0
+    }
+}
+print(time)
 
 //UNUCIC
 //답
