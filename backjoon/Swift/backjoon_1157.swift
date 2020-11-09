@@ -18,24 +18,23 @@ import Foundation
 // 첫째 줄에 이 단어에서 가장 많이 사용된 알파벳을 대문자로 출력한다. 단, 가장 많이 사용된 알파벳이 여러 개 존재하는 경우에는 ?를 출력한다.
 
 let word = readLine()!.uppercased()
-var alphabet = [Character: Int]()
+var alphabetCount = [Character: Int]()
 var count = 0
-var maxAlphabet: Character?
-var check: Int?
 
 for i in word {
-    count = alphabet[i] ?? 0
-    alphabet[i] = count + 1
+    count = alphabetCount[i] ?? 0
+    alphabetCount[i] = count + 1
 }
-maxAlphabet = alphabet.max { $0.value <= $1.value }?.key
-let max = alphabet[maxAlphabet!]!
-alphabet.removeValue(forKey: maxAlphabet!)
-check = alphabet.max { $0.value <= $1.value }?.value
-if max == check {
-    print("?")
+
+let maxAlphabet = alphabetCount.max { $0.value <= $1.value }!
+let maxCount = alphabetCount.filter { $0.value == maxAlphabet.value }.count
+
+if maxCount == 1 {
+    print(maxAlphabet.key)
 } else {
-    print(maxAlphabet!)
+    print("?")
 }
+
 
 //Mississipi
 //?
