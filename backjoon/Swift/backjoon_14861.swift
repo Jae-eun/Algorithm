@@ -29,15 +29,17 @@ let x = Int(readLine()!)!
 let y = Int(readLine()!)!
 
 if x > 0 {
-    if y > 0 {
-        print(1)
-    } else {
-        print(4)
-    }
+    y > 0 ? print(1) : print(4)
 } else {
-    if y > 0 {
-        print(2)
-    } else {
-        print(3)
-    }
+    y > 0 ? print(2) : print(3)
 }
+
+//12
+//5
+//답
+//1
+//
+//9
+//-13
+//답
+//4
