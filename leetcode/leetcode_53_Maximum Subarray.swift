@@ -9,7 +9,9 @@
 import Foundation
 
 //53. Maximum Subarray LeetCode
-//
+
+// 주어진 배열의 연속된 부분 배열의 원소들을 더할 때 가장 큰 값 구하기
+
 //Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
 
 func maxSubArray(_ nums: [Int]) -> Int {
