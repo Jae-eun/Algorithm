@@ -10,6 +10,8 @@ import Foundation
 
 //LeetCode 1. Two Sum
 
+// 주어진 nums 배열에서 2개의 원소를 더해 target이 될 수 있는 수의 배열 인덱스 구하기
+
 //Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
 //
 //You may assume that each input would have exactly one solution, and you may not use the same element twice.

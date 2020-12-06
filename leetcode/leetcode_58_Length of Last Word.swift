@@ -9,7 +9,9 @@
 import Foundation
 
 //58. Length of Last Word leetcode
-//
+
+// 주어진 문장에서 마지막 단어의 길이 구하기
+
 //Given a string s consists of upper/lower-case alphabets and empty space characters ' ', return the length of last word in the string.
 //
 //If the last word does not exist, return 0.

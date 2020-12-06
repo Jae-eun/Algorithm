@@ -9,7 +9,9 @@
 import Foundation
 
 //LeetCode 20. Valid Parentheses
-//
+
+// 주어진 s의 괄호가 짝이 맞아 유효한지 무효한지 구하기
+
 //Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
 //
 //An input string is valid if:
