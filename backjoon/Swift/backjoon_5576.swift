@@ -21,6 +21,7 @@
 //출력
 //W 대학 점수와 K 대학의 점수를 순서대로 공백으로 구분하여 출력하라.
 
+// 풀이 1
 var W = [Int](), K = [Int](), result = [Int](repeating: 0, count: 2)
 
 for _ in 0..<10 {
@@ -38,6 +39,21 @@ for i in 0..<3 {
 }
 
 print("\(result[0]) \(result[1])")
+
+// 풀이 2
+var W = [Int](), K = [Int]()
+
+for _ in 0..<10 {
+    W.append(Int(readLine()!)!)
+}
+for _ in 0..<10 {
+    K.append(Int(readLine()!)!)
+}
+
+W.sort()
+K.sort()
+
+print("\(W[7...9].reduce(0, +)) \(K[7...9].reduce(0, +))")
 
 //23
 //23
