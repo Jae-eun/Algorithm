@@ -21,6 +21,11 @@ import Foundation
 //출력
 //각 테스트 케이스마다 "Case #x: A + B = C" 형식으로 출력한다. x는 테스트 케이스 번호이고 1부터 시작하며, C는 A+B이다.
 
+for i in 1...Int(readLine()!)! {
+    let input = readLine()!.split(separator: " ").compactMap { Int($0) }
+    print("Case #\(i): \(input[0]) + \(input[1]) = \(input[0] + input[1])")
+}
+
 //5
 //1 1
 //2 3
