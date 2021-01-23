@@ -6,47 +6,6 @@
 //  Copyright © 2019 이재은. All rights reserved.
 //
 
-import Foundation
-
-// 풀이 1
-let n = Int(readLine() ?? "") ?? 0
-var result = Array(repeating: 0, count: n)
-for j in 0..<n {
-    var score = 0
-    let input = readLine() ?? ""
-    var array = input.characters.map{ String($0) }
-    for i in 0..<array.count {
-        if array[i] == "O" {
-            score += 1
-            result[j] += score
-        } else {
-            score = 0
-        }
-    }
-}
-for j in 0..<n {
-    print(result[j])
-}
-
-// 풀이 2
-let number = Int(readLine()!)!
-
-for _ in 0..<number {
-    let testcase = readLine()!
-    var score = 0
-    var result = 0
-    
-    for test in testcase {
-        if test == "O" {
-            score += 1
-            result += score
-        } else {
-            score = 0
-        }
-    }
-    print(result)
-}
-
 // backjoon 8958 OX 퀴즈
 
 //문제
@@ -62,12 +21,10 @@ for _ in 0..<number {
 //출력
 //각 테스트 케이스마다 점수를 출력한다.
 
-var result = 0
 for _ in 0..<Int(readLine()!)! {
-    let testcase = readLine()!.filter { $0 == "O" }
-    var score = 0
+    var score = 0, result = 0
 
-    for test in testcase {
+    for test in readLine()! {
         if test == "O" {
             score += 1
             result += score
