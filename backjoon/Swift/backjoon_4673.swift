@@ -6,10 +6,7 @@
 //  Copyright © 2019 이재은. All rights reserved.
 //
 
-import Foundation
-
 // backjoon 4673 셀프 넘버
-
 //셀프 넘버는 1949년 인도 수학자 D.R. Kaprekar가 이름 붙였다. 양의 정수 n에 대해서 d(n)을 n과 n의 각 자리수를 더하는 함수라고 정의하자. 예를 들어, d(75) = 75+7+5 = 87이다.
 //
 //양의 정수 n이 주어졌을 때, 이 수를 시작해서 n, d(n), d(d(n)), d(d(d(n))), ...과 같은 무한 수열을 만들 수 있다.
@@ -31,21 +28,11 @@ import Foundation
 //10,000보다 작거나 같은 셀프 넘버를 한 줄에 하나씩 증가하는 순서로 출력한다.
 
 // 방법 1
-var numbers = [Int]()
-var sum = 0
+var numbers = [Int](1...9999)
 
 for i in 1...9999 {
-    numbers.append(i)
-}
-
-for i in 1...9999 {
-    sum = 0
-    for j in String(i) {
-        sum += Int(String(j))!
-    }
-    sum += i
-
-    if let index = numbers.index(of: sum) {
+    let sum = String(i).compactMap { $0.wholeNumberValue }.reduce(0, +) + i
+    if let index = numbers.firstIndex(of: sum) {
         numbers.remove(at: index)
     }
 }
@@ -55,20 +42,43 @@ numbers.forEach {
 }
 
 // 방법 2
-var numbers = [Int]()
-
-for i in 1...9999 {
-    numbers.append(i)
-}
+var numbers = [Bool](repeating: true, count: 10000)
+numbers[0] = false
 
 for i in 1...9999 {
     let sum = String(i).compactMap { $0.wholeNumberValue }.reduce(0, +) + i
-    if let index = numbers.index(of: sum) {
-        numbers.remove(at: index)
+    if sum < 10000 {
+        numbers[sum] = false
     }
 }
 
-numbers.forEach {
-    print($0)
+for (index, isSelfNumber) in numbers.enumerated() {
+    if isSelfNumber {
+        print(index)
+    }
 }
 
+//답
+//1
+//3
+//5
+//7
+//9
+//20
+//31
+//42
+//53
+//64
+// |
+// |       <-- a lot more numbers
+// |
+//9903
+//9914
+//9925
+//9927
+//9938
+//9949
+//9960
+//9971
+//9982
+//9993
