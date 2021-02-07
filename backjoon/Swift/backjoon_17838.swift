@@ -6,8 +6,6 @@
 //  Copyright © 2019 이재은. All rights reserved.
 //
 
-import Foundation
-
 //backjoon 17838 커맨드
 //
 //평소 헥사던전이라는 비디오 게임을 좋아하는 윤표는 특히 키를 AABBABB로 입력해 사용하는 콤보기를 좋아한다.
@@ -30,12 +28,20 @@ import Foundation
 //T개 각각의 테스트 케이스에 대해 윤표가 좋아하는 커맨드이면 1, 그렇지 않으면 0을 한 줄에 하나씩 출력한다.
 
 let T = Int(readLine()!)!
+
 for _ in 0..<T {
-    let x = readLine()!.map { String($0) }
-    if x[0] == x[1] && x[1] == x[4] && x[2] == x[3] && x[3] == x[5] && x[5] == x[6] && x[0] != x[2] {
-        print(1)
+    let command = readLine()!.map { String($0) }
+    print(favoriteCommand(command))
+}
+
+func favoriteCommand(_ text: [String]) -> Int {
+    if text.count != 7 { return 0 }
+    if text[0] == text[1] && text[1] == text[4] &&
+        text[2] == text[3] && text[3] == text[5] &&
+        text[5] == text[6] && text[0] != text[2] {
+        return 1
     } else {
-        print(0)
+        return 0
     }
 }
 
@@ -53,3 +59,4 @@ for _ in 0..<T {
 //ABCAFAGHWWE
 //답
 //0
+
