@@ -24,29 +24,6 @@ import Foundation
 
 // 방법 1
 var input = Int(readLine()!)!
-var fiveResult = 0
-var threeResult = 0
-
-fiveResult = input / 5
-input %= 5
-
-while input >= 0 {
-    if input % 3 == 0 {
-        threeResult = input / 3
-        input %= 3
-        break
-    }
-    fiveResult -= 1
-    input += 5
-    if fiveResult < 0 {
-        break
-    }
-}
-print(input == 0 ? fiveResult+threeResult : -1)
-
-
-// 방법 2
-var input = Int(readLine()!)!
 var result = 0
 
 while input > 0 {
@@ -59,6 +36,21 @@ while input > 0 {
     }
 }
 print(input == 0 ? result : -1)
+
+
+// 방법 2
+let N = Int(readLine()!)!
+var min = 0
+
+for i in (0...N / 5).reversed() {
+    let sugar = N - (5 * i)
+    if sugar % 3 == 0 {
+        min += i + sugar / 3
+        break
+    }
+}
+
+print(min == 0 ? -1 : min)
 
 //18
 //답 4
