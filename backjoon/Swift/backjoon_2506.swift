@@ -1,5 +1,5 @@
 //
-//  backjoon_1260.swift
+//  backjoon_2506.swift
 //  algo
 //
 //  Created by 이재은 on 2021/04/02.
