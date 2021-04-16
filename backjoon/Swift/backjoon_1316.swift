@@ -34,17 +34,15 @@ print(result)
 
 func checkGroup(word: String) -> Bool {
     var check: [Character] = []
-    var lastAlphabet: Character?
 
-    for w in word {
-        if !check.contains(w) {
-            check.append(w)
+    for char in word {
+        if !check.contains(char) {
+            check.append(char)
         } else {
-            if lastAlphabet != w {
+            if check.last != char {
                 return false
             }
         }
-        lastAlphabet = w
     }
     return true
 }
