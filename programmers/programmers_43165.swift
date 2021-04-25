@@ -28,28 +28,16 @@ import Foundation
 //numbers    target    return
 //[1, 1, 1, 1, 1]    3    5
 
-var _numbers = [Int]()
-var _target = 0
-var result = 0
-
-func dfs(_ depth: Int, _ sum: Int) {
-    if depth == _numbers.count {
-        if sum == _target {
-            result += 1
-        }
-        return
+func dfs(_ numbers: [Int], _ target: Int, _ depth: Int = 0, _ sum: Int = 0) -> Int {
+    if depth == numbers.count {
+        return sum == target ? 1 : 0
     }
-    dfs(depth + 1, sum + _numbers[depth])
-    dfs(depth + 1, sum - _numbers[depth])
+    return dfs(numbers, target, depth + 1, sum + numbers[depth]) +
+        dfs(numbers, target, depth + 1, sum - numbers[depth])
 }
 
 func solution(_ numbers: [Int], _ target: Int) -> Int {
-    _numbers = numbers
-    _target = target
-
-    dfs(0, 0)
-
-    return result
+    return dfs(numbers, target)
 }
 
-print(solution([1, 1, 1, 1, 1], 3)) // 5
+print(solution([1,1,1,1,1], 3)) // 5
