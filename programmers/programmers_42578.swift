@@ -28,39 +28,19 @@ import Foundation
 // 모든 문자열의 길이는 1 이상 20 이하인 자연수이고 알파벳 소문자 또는 '_' 로만 이루어져 있습니다.
 // 스파이는 하루에 최소 한 개의 의상은 입습니다.
 
-
-// 풀이 1
-func solution(_ clothes:[[String]]) -> Int {
+func solution(_ clothes: [[String]]) -> Int {
     var items = [String: Int]()
     var result = 1
 
     for i in 0..<clothes.count {
-        if items[clothes[i][1]] == nil {
-            items[clothes[i][1]] = 1
-        } else {
-            items[clothes[i][1]] = items[clothes[i][1]]! + 1
-        }
+        items[clothes[i][1]] = items[clothes[i][1], default: 1] + 1
     }
 
     for (_, value) in items {
-        result *= (value + 1)
+        result *= value
     }
     return result - 1
 }
 
-
-// 풀이 2
-func solution(_ clothes:[[String]]) -> Int {
-    var items = [String: Int]()
-    
-    clothes.forEach { item in
-        let key = item[1]
-        let oldValue = items[key] ?? 1
-        items[key] = oldValue + 1
-    }
-    
-    return items.map{ $0.value + 1 }.reduce(1){ $0 * $1 } - 1
-}
-
-print(solution([["yellow_hat", "headgear"], ["blue_sunglasses", "eyewear"], ["green_turban", "headgear"]]))
-print(solution([["crow_mask", "face"], ["blue_sunglasses", "face"], ["smoky_makeup", "face"]]))
+print(solution([["yellow_hat", "headgear"], ["blue_sunglasses", "eyewear"], ["green_turban", "headgear"]])) //5
+print(solution([["crow_mask", "face"], ["blue_sunglasses", "face"], ["smoky_makeup", "face"]])) //3
