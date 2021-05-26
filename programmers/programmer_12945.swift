@@ -31,7 +31,7 @@ func solution(_ n: Int) -> Int {
     for i in 2...n {
         fibonacci[i] = (fibonacci[i-2] + fibonacci[i-1]) % 1234567
     }
-    return fibonacci[n] % 1234567
+    return fibonacci[n]
 }
 
 print(solution(3))
