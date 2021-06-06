@@ -6,9 +6,8 @@
 //  Copyright © 2019 이재은. All rights reserved.
 //
 
-import Foundation
-
 // programmers 17677 뉴스 클러스터링
+
 // 카카오 블라인드 2017년
 // 여러 언론사에서 쏟아지는 뉴스, 특히 속보성 뉴스를 보면 비슷비슷한 제목의 기사가 많아 정작 필요한 기사를 찾기가 어렵다. Daum 뉴스의 개발 업무를 맡게 된 신입사원 튜브는 사용자들이 편리하게 다양한 뉴스를 찾아볼 수 있도록 문제점을 개선하는 업무를 맡게 되었다.
 //
@@ -40,15 +39,13 @@ import Foundation
 // 입력으로 들어온 두 문자열의 자카드 유사도를 출력한다. 유사도 값은 0에서 1 사이의 실수이므로, 이를 다루기 쉽도록 65536을 곱한 후에 소수점 아래를 버리고 정수부만 출력한다.
 
 func solution(_ str1: String, _ str2: String) -> Int {
-    var multiSet1 = [String]()
-    var multiSet2 = [String]()
-    
-    multiSet1 = makeMultiSet(str: str1)
-    multiSet2 = makeMultiSet(str: str2)
+    let multiSet1 = makeMultiSet(str: str1)
+    let multiSet2 = makeMultiSet(str: str2)
+
     let intersectionSetCount = countIntersectionSet(set1: multiSet1, set2: multiSet2)
     let unionSetCount = Double(multiSet1.count + multiSet2.count) - intersectionSetCount
-    
-    if multiSet1.isEmpty && multiSet2.isEmpty {
+
+    if unionSetCount == 0 {
         return 65536
     } else {
         return Int(intersectionSetCount / unionSetCount * 65536)
@@ -58,12 +55,11 @@ func solution(_ str1: String, _ str2: String) -> Int {
 func makeMultiSet(str: String) -> [String] {
     var multiSet = [String]()
     var precedingChar = "0"
-    for char in str {
-        let lowerChar = char.lowercased()
+    for char in str.lowercased() {
         if char.isLetter && Character(precedingChar).isLetter {
-            multiSet.append(precedingChar + lowerChar)
+            multiSet.append(precedingChar + String(char))
         }
-        precedingChar = lowerChar
+        precedingChar = String(char)
     }
     return multiSet
 }
@@ -74,7 +70,7 @@ func countIntersectionSet(set1: [String], set2: [String]) -> Double {
     for i in 0..<set1.count {
         if set2.contains(set1[i]) {
             count += 1
-            set2.remove(at: set2.index(of: set1[i])!)
+            set2.remove(at: set2.firstIndex(of: set1[i])!)
         }
     }
     return Double(count)
@@ -84,4 +80,4 @@ print(solution("FRANCE", "french"))         // 16384
 print(solution("handshake", "shake hands")) // 65536
 print(solution("aa1+aa2", "AAAA12"))        // 43690
 print(solution("E=M*C^2", "e=m*c^2"))       // 65536
-print(solution("0aa", "abx0aa"))
+print(solution("0aa", "abx0aa"))            // 21845

@@ -30,17 +30,16 @@ import Foundation
 //24        24      [8, 6]
 
 func solution(_ brown: Int, _ yellow: Int) -> [Int] {
-    let carpet = brown + yellow
+    let totalCarpet = brown + yellow
     var size = [Int]()
+    let minimum = 3
 
-    for i in 3...carpet / 3 where carpet % i == 0 {
-        let width =  carpet / i
-        if size.count == 2 {
-            break
-        }
+    for i in minimum...totalCarpet / minimum where totalCarpet % i == 0 {
+        let width = totalCarpet / i
         if (i - 2) * (width - 2) == yellow {
             size.append(width)
             size.append(i)
+            break
         }
     }
     return size
