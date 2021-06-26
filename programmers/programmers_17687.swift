@@ -41,19 +41,16 @@ import Foundation
 //16   16   2    2    13579BDF01234567
 
 func solution(_ n: Int, _ t: Int, _ m: Int, _ p: Int) -> String {
-    var wholeNumber = ""
-    var wholeNumberArray = [String]()
+    var wholeNumbers = [String]()
     var result = ""
 
     for i in 0..<(m * t) {
-        let num = String(i, radix: n)
-        wholeNumber += num
+        wholeNumbers.append(contentsOf: String(i, radix: n, uppercase: true).map { String($0) })
     }
-    wholeNumberArray = wholeNumber.map { String($0) }
 
     var index = p - 1
     while result.count < t {
-        result += wholeNumberArray[index].uppercased()
+        result += wholeNumbers[index]
         index += m
     }
     return result
