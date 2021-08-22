@@ -47,38 +47,38 @@ import Foundation
 //
 //따라서 최대 3명이 디딤돌을 모두 건널 수 있습니다.
 
-// 효율성 틀림
-func solution(_ stones: [Int], _ k: Int) -> Int {
-    let stonesString = stones.map { String($0) }.joined()
-    let zero = String(repeating: "0", count: k)
-    if stonesString.contains(zero) {
-        return 0
-    }
+func checkCross(_ stones: [Int], _ k: Int, _ person: Int) -> Bool {
+    var count = 0
+    for stone in stones {
+        if stone - person < 0 {
+            count += 1
+        } else {
+            count = 0
+        }
 
-    var isPossible = true
-    var stones = stones
-    var friends = 0
-
-    while isPossible {
-        friends += 1
-        var zeroCount = 0
-        for i in 0..<stones.count {
-            if stones[i] != 0 {
-                stones[i] -= 1
-            }
-            if stones[i] == 0 {
-                zeroCount += 1
-                if zeroCount >= k {
-                    isPossible = false
-                    break
-                }
-            } else {
-                zeroCount = 0
-            }
+        if count == k {
+            return false
         }
     }
-    return friends
+    return true
+}
+
+func solution(_ stones: [Int], _ k: Int) -> Int {
+    var high = stones.max()!
+    var low = 0
+    var answer = 0
+
+    while low <= high {
+        let mid = (low + high) / 2
+
+        if checkCross(stones, k, mid) {
+            low = mid + 1
+            answer = max(answer, mid)
+        } else {
+            high = mid - 1
+        }
+    }
+    return answer
 }
 
 print(solution([2, 4, 5, 3, 2, 1, 4, 2, 5, 1], 3)) // 3
-
