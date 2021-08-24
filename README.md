@@ -1,3 +1,23 @@
+# 알고리즘 문제 풀이 - Swift
+
+## 백준
+
+### 스택
+[1406번 - 에디터 ](https://github.com/Jae-eun/Algorithm/blob/master/backjoon/Swift/backjoon_1406.swift), [9012번 - 괄호](https://github.com/Jae-eun/Algorithm/blob/master/backjoon/Swift/backjoon_9012.swift), [10773 - 제로 ](https://github.com/Jae-eun/Algorithm/blob/master/backjoon/Swift/backjoon_10773.swift), [10799번 - 쇠막대기](https://github.com/Jae-eun/Algorithm/blob/master/backjoon/Swift/backjoon_10799.swift), [10828번 - 스택](https://github.com/Jae-eun/Algorithm/blob/master/backjoon/Swift/backjoon_10828.swift),   [17608번 - 막대기](https://github.com/Jae-eun/Algorithm/blob/master/backjoon/Swift/backjoon_17608.swift)
+
+### 큐
+[2161번 - 카드1](https://github.com/Jae-eun/Algorithm/blob/master/backjoon/Swift/backjoon_2161.swift), 
+[10845번 - 큐](https://github.com/Jae-eun/Algorithm/blob/master/backjoon/Swift/backjoon_10845.swift)
+
+
+
+
+
+
+
+
+
+
 # 유니코드
 
 ### 유니코드로 문자 변환
