@@ -42,6 +42,7 @@ import Foundation
 //배달_3_njc7kq.png
 //1번 마을에서 배달에 4시간 이하가 걸리는 마을은 [1, 2, 3, 5] 4개이므로 4를 return 합니다.
 
+// 풀이 1
 func solution(_ N: Int, _ road: [[Int]], _ k: Int) -> Int {
     if N == 1 { return 1 }
 
@@ -63,6 +64,36 @@ func dijkstra(_ distance: [Int], _ road: [[Int]], _ start: Int) -> [Int] {
             if distance[current] + town[2] < distance[other] {
                 distance[other] = distance[current] + town[2]
                 queue.append(other)
+            }
+        }
+    }
+    return distance
+}
+
+// 풀이 2
+func solution(_ N: Int, _ road: [[Int]], _ k: Int) -> Int {
+    if N == 1 { return 1 }
+
+    return floyd(road, N)[1].filter { $0 <= k }.count
+}
+
+func floyd(_ roads: [[Int]], _ n: Int) -> [[Int]] {
+    var distance = [[Int]](repeating: Array(repeating: Int.max, count: n + 1), count: n + 1)
+
+    for road in roads {
+        distance[road[0]][road[1]] = min(distance[road[0]][road[1]], road[2])
+        distance[road[1]][road[0]] = min(distance[road[1]][road[0]], road[2])
+    }
+
+    for i in 1...n {
+        distance[i][i] = 0
+    }
+
+    for k in 1...n {
+        for i in 1...n {
+            for j in 1...n {
+                if distance[i][k] == Int.max || distance[k][j] == Int.max { continue }
+                distance[i][j] = min(distance[i][k] + distance[k][j], distance[i][j])
             }
         }
     }
