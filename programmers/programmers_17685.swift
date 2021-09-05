@@ -75,9 +75,8 @@ class Node {
     var children = [Character: Node]()
     var order: Int = 0
 
-    init(_ key: Character?, data: String? = nil) {
+    init(_ key: Character? = nil) {
         self.key = key
-        self.data = data
     }
 }
 
@@ -85,7 +84,7 @@ class Trie {
     var head: Node
 
     init() {
-        self.head = Node(nil)
+        self.head = Node()
     }
 
     func insert(_ str: String) {
